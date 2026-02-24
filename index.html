@@ -21,8 +21,11 @@
             player.style.height = "100%";
             document.getElementById("game-container").appendChild(player);
             
-            // Your Dropbox link converted to a direct stream
-            player.load("https://www.dropbox.com/scl/fi/few2l92yc97uol26pqrwx/issac.swf?rlkey=ho32zp85dxknokboqd04wzdgq&raw=1");
+            // This is your Dropbox link wrapped in the CORS Proxy
+            const proxy = "https://corsproxy.io/?";
+            const dropbox = "https://www.dropbox.com/scl/fi/few2l92yc97uol26pqrwx/issac.swf?rlkey=ho32zp85dxknokboqd04wzdgq&raw=1";
+            
+            player.load(proxy + encodeURIComponent(dropbox));
         });
     </script>
 </body>

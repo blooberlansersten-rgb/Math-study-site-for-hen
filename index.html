@@ -11,18 +11,31 @@
 </head>
 <body>
     <div id="game-container"></div>
+    
     <script src="ruffle.js"></script>
+    
     <script>
         window.RufflePlayer = window.RufflePlayer || {};
         window.addEventListener("load", () => {
             const ruffle = window.RufflePlayer.newest();
             const player = ruffle.createPlayer();
+            
+            // This setting helps with saving and cross-site loading
+            player.config = {
+                "letterbox": "on",
+                "autoplay": "on",
+                "unmuteOverlay": "hidden",
+            };
+
             player.style.width = "100%";
             player.style.height = "100%";
             document.getElementById("game-container").appendChild(player);
             
-            // This is your specific Google Drive ID formatted for direct download
-            player.load("https://docs.google.com/uc?export=download&id=1wHr5_KBJvvq0pVYef97DcvCCs6VwFyWm");
+            // Using your PERMANENT Catbox link
+            player.load({
+                url: "https://files.catbox.moe/kk84m9.swf",
+                allowScriptAccess: true,
+            });
         });
     </script>
 </body>

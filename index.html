@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Math Analysis - Project 1</title>
+    <title>Math Analysis - Data Set 1</title>
     <style>
         html, body { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; overflow: hidden; display: flex; justify-content: center; align-items: center; }
         #game-container { width: 100vw; height: 100vh; }
@@ -21,11 +21,10 @@
             player.style.height = "100%";
             document.getElementById("game-container").appendChild(player);
             
-            // This is your Dropbox link wrapped in the CORS Proxy
-            const proxy = "https://corsproxy.io/?";
-            const dropbox = "https://www.dropbox.com/scl/fi/few2l92yc97uol26pqrwx/issac.swf?rlkey=ho32zp85dxknokboqd04wzdgq&raw=1";
+            // This proxy "cleans" the Dropbox link so the browser thinks it's safe
+            const gameUrl = "https://www.dropbox.com/scl/fi/few2l92yc97uol26pqrwx/issac.swf?rlkey=ho32zp85dxknokboqd04wzdgq&raw=1";
             
-            player.load(proxy + encodeURIComponent(dropbox));
+            player.load("https://api.allorigins.win/raw?url=" + encodeURIComponent(gameUrl));
         });
     </script>
 </body>

@@ -11,31 +11,18 @@
 </head>
 <body>
     <div id="game-container"></div>
-    
     <script src="ruffle.js"></script>
-    
     <script>
         window.RufflePlayer = window.RufflePlayer || {};
         window.addEventListener("load", () => {
             const ruffle = window.RufflePlayer.newest();
             const player = ruffle.createPlayer();
-            
-            // This setting helps with saving and cross-site loading
-            player.config = {
-                "letterbox": "on",
-                "autoplay": "on",
-                "unmuteOverlay": "hidden",
-            };
-
             player.style.width = "100%";
             player.style.height = "100%";
             document.getElementById("game-container").appendChild(player);
             
-            // Using your PERMANENT Catbox link
-            player.load({
-                url: "https://files.catbox.moe/kk84m9.swf",
-                allowScriptAccess: true,
-            });
+            // Your Dropbox link converted to a direct stream
+            player.load("https://www.dropbox.com/scl/fi/few2l92yc97uol26pqrwx/issac.swf?rlkey=ho32zp85dxknokboqd04wzdgq&raw=1");
         });
     </script>
 </body>
